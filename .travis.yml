@@ -19,6 +19,8 @@ env:
 install:
   - pip install -r requirements.txt
   - pip install codacy-coverage
+  - pip install -q Django==$DJANGO_VERSION
+  - python setup.py -q install
 script:
   - cd decide
   - coverage run --branch --source=. ./manage.py test voting --keepdb --with-xunit
