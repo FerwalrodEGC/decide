@@ -31,5 +31,5 @@ notifications:
   on_failure: always
 branches:
   only:
-    - main
+    - master
   
