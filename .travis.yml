@@ -1,40 +1,39 @@
 dist: xenial
-
 services:
-  - postgresql
+- postgresql
 addons:
-  postgresql: "9.4"
+  postgresql: '9.4'
 before_script:
-  - psql -U postgres -c "create user decide password 'decide'"
-  - psql -U postgres -c "create database test_decide owner decide"
-  - psql -U postgres -c "ALTER USER decide CREATEDB"
+- psql -U postgres -c "create user decide password 'decide'"
+- psql -U postgres -c "create database test_decide owner decide"
+- psql -U postgres -c "ALTER USER decide CREATEDB"
 language: python
 python:
-  - "3.6"
+- '3.6'
 env:
-  - DJANGO_VERSION=2.0
+- DJANGO_VERSION=2.0
 install:
-  - pip install -r requirements.txt
-  - pip install codacy-coverage
-
+- pip install -r requirements.txt
+- pip install codacy-coverage
 script:
-  - cd decide
-  - cp travis_local_settings.py local_settings.py  
-  - coverage run --branch --source=. ./manage.py test mixnet --keepdb
-  - coverage xml
-  - python-codacy-coverage -r coverage.xml
+- cd decide
+- cp travis_local_settings.py local_settings.py
+- coverage run --branch --source=. ./manage.py test mixnet --keepdb
+- coverage xml
+- python-codacy-coverage -r coverage.xml
 deploy:
-  provider: heroku
-  app: ferwalrodegc-practica
-  strategy: git
-  apikey: f2ae22ae-4df4-4464-8842-395aa782b699
+  - provider: heroku
+    app: ferwalrodegc-practica
+    strategy: git
+    api_key:
+      secure: MsV7gH074WhIE/ROT3ahRzQD5wBjfZDEEN74FSy8viDdhBzEJ4y4MiFFCuq70JRMbuzto18r3o5GfzYUdb3w/FgfYivJFHLiSeiuTqeLx/zL0XJR4t0iH/b24/M+EEEsO3ZqiuEK46lozMJwU+l+EeTDMwWxoFX2CgomL3IEgYDpNHDOQVaojaaGhu7wReYB7mtMPgrv+qswubJEGMizJkxXSb5GnrT0M7pi5u2gbOyiiRHV56g7YFPvf6l3pShME6GRFhovabGFpX3ow6lf1qsr/dYMrjutImzW6JYLrx685T1umhDVEJBz8kKSLfetONLqj6oPE+0zBCldfZ6m48E0HLaLNsmvQFVnAU9NHCHGuoT/uFguksk5i6kNZ1bpZvRRdq1DfQyk9Hi5IEIPgvISrMW36VJSgFRlhkCbANptjpiiha4ScWYb/jr/0mYAuIkxnsS+V7kd/Jx8e0ZtqGNY73BxcZUUQcTuU7MqbgCyXM+Ec4Jaw9ZaVhRuqy2nj2EXwBSSMMWIGZwj14wny4kPEOvm4QRGfWZr0BnLTJZ634ouvLvzBHUkC50qdp/T01dE9svkyxCJ88EJnQNDLtjKW0qh+Y4T1dzZVGLUJV8LqaaTXnZUpgz3wprfHF25qvFe1In844w71GrnOhWZogAN0OMfmZOMST72LgFl73w=
+    on:
+      branch: master
 notifications:
   email:
-    - ferwalrodegc@gmail.com
+  - ferwalrodegc@gmail.com
   on_success: always
   on_failure: always
 branches:
   only:
-    - master
-  
-
+  - master
