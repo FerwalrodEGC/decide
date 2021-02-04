@@ -72,7 +72,7 @@ MODULES = [
     'voting',
 ]
 
-BASEURL = 'https://ferwalrodegc-practica.herokuapp.com'
+BASEURL = 'https://ferwalrodegc-practica-pre.herokuapp.com'
 
 APIS = {
     'authentication': BASEURL,
