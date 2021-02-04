@@ -11,9 +11,12 @@ before_script:
 language: python
 python:
   - "3.6"
+env:
+  - DJANGO_VERSION=2.0
 install:
   - pip install -r requirements.txt
   - pip install codacy-coverage
+
 script:
   - cd decide
   - cp travis_local_settings.py local_settings.py  
@@ -25,3 +28,13 @@ deploy:
   app: ferwalrodegc-practica
   strategy: git
   apikey: f2ae22ae-4df4-4464-8842-395aa782b699
+notifications:
+  email:
+    - ferwalrodegc@gmail.com
+  on_success: always
+  on_failure: always
+branches:
+  only:
+    - master
+  
+
