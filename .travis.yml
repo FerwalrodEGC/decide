@@ -29,6 +29,13 @@ deploy:
       secure: MsV7gH074WhIE/ROT3ahRzQD5wBjfZDEEN74FSy8viDdhBzEJ4y4MiFFCuq70JRMbuzto18r3o5GfzYUdb3w/FgfYivJFHLiSeiuTqeLx/zL0XJR4t0iH/b24/M+EEEsO3ZqiuEK46lozMJwU+l+EeTDMwWxoFX2CgomL3IEgYDpNHDOQVaojaaGhu7wReYB7mtMPgrv+qswubJEGMizJkxXSb5GnrT0M7pi5u2gbOyiiRHV56g7YFPvf6l3pShME6GRFhovabGFpX3ow6lf1qsr/dYMrjutImzW6JYLrx685T1umhDVEJBz8kKSLfetONLqj6oPE+0zBCldfZ6m48E0HLaLNsmvQFVnAU9NHCHGuoT/uFguksk5i6kNZ1bpZvRRdq1DfQyk9Hi5IEIPgvISrMW36VJSgFRlhkCbANptjpiiha4ScWYb/jr/0mYAuIkxnsS+V7kd/Jx8e0ZtqGNY73BxcZUUQcTuU7MqbgCyXM+Ec4Jaw9ZaVhRuqy2nj2EXwBSSMMWIGZwj14wny4kPEOvm4QRGfWZr0BnLTJZ634ouvLvzBHUkC50qdp/T01dE9svkyxCJ88EJnQNDLtjKW0qh+Y4T1dzZVGLUJV8LqaaTXnZUpgz3wprfHF25qvFe1In844w71GrnOhWZogAN0OMfmZOMST72LgFl73w=
     on:
       branch: master
+  - provider: heroku
+    app: ferwalrodegc-practica-pre
+    strategy: git
+    api_key:
+      secure: MsV7gH074WhIE/ROT3ahRzQD5wBjfZDEEN74FSy8viDdhBzEJ4y4MiFFCuq70JRMbuzto18r3o5GfzYUdb3w/FgfYivJFHLiSeiuTqeLx/zL0XJR4t0iH/b24/M+EEEsO3ZqiuEK46lozMJwU+l+EeTDMwWxoFX2CgomL3IEgYDpNHDOQVaojaaGhu7wReYB7mtMPgrv+qswubJEGMizJkxXSb5GnrT0M7pi5u2gbOyiiRHV56g7YFPvf6l3pShME6GRFhovabGFpX3ow6lf1qsr/dYMrjutImzW6JYLrx685T1umhDVEJBz8kKSLfetONLqj6oPE+0zBCldfZ6m48E0HLaLNsmvQFVnAU9NHCHGuoT/uFguksk5i6kNZ1bpZvRRdq1DfQyk9Hi5IEIPgvISrMW36VJSgFRlhkCbANptjpiiha4ScWYb/jr/0mYAuIkxnsS+V7kd/Jx8e0ZtqGNY73BxcZUUQcTuU7MqbgCyXM+Ec4Jaw9ZaVhRuqy2nj2EXwBSSMMWIGZwj14wny4kPEOvm4QRGfWZr0BnLTJZ634ouvLvzBHUkC50qdp/T01dE9svkyxCJ88EJnQNDLtjKW0qh+Y4T1dzZVGLUJV8LqaaTXnZUpgz3wprfHF25qvFe1In844w71GrnOhWZogAN0OMfmZOMST72LgFl73w=
+    on:
+      branch: pre
 notifications:
   email:
   - ferwalrodegc@gmail.com
@@ -37,3 +44,4 @@ notifications:
 branches:
   only:
   - master
+  - pre
